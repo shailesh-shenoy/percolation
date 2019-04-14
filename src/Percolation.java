@@ -66,6 +66,10 @@ public class Percolation
 		if (!this.validateIndices(row, col))
 			throw new IllegalArgumentException("The values of row and column must be between 1 and " + (gridSize - 1));
 		
+		// Exit if site already open
+		if (this.isOpen(row, col))
+			return;
+		
 		// Calculate Index
 		int site = calculateIndex(row, col);
 		
